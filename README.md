@@ -1,13 +1,13 @@
 # metNum2020.2
 
-Trabalho necessário para nota da disciplina de métodos númericos I
-Prof.: Joaquim Bento
-Equipe: 
-Adislania Martins
-Belchior Dameao
-Leonardo Monteiro
-João Victor
-Tiago Lisboa
+Trabalho necessário para nota da disciplina de métodos númericos I<br>
+Prof.: Joaquim Bento<br>
+Equipe: <br>
+Adislania Martins<br>
+Belchior Dameao<br>
+Leonardo Monteiro<br>
+João Victor<br>
+Tiago Lisboa<br><br>
 
 Descrição do Trabalho:
 O deslocamento da extremidade de um foguete espacial ao entrar na atmosfera da terra é dado pela equação f(d) = a*d – d*ln(d), onde d é
