@@ -62,7 +62,7 @@ int main()
             break;
         default:
             // mesmo que a opcao "1", fica como padrao
-            // monta tela inicial
+            // monta tela inicial ..
             interface.header();
             interface.menu();
             interface.descricao();
