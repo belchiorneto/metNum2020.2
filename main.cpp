@@ -29,7 +29,7 @@ int main()
             interface.menuInicial(&foguetes, &E);
             interface.loopParametros(&foguetes, &iteracoes, &E, &casasdecimais, &AoT, vetor_metodos);
             vetor_metodos[0].setGravaDados(foguetes, iteracoes);
-            cout<<"Os dados foram calculados! tecle 2 para mostrar os dados"<<endl;
+            interface.mostradados(vetor_metodos, foguetes, casasdecimais);
             break;
         case 2:
             // opcao para mostrar as tabelas com os dados calculados
@@ -49,8 +49,7 @@ int main()
             vetor_metodos.clear();
             interface.allParametros(&foguetes, &iteracoes, &E, &casasdecimais, &AoT, vetor_metodos);
             vetor_metodos[0].setGravaDados(foguetes, iteracoes);
-            cout<<"Os dados foram calculados! tecle 2 para mostrar"<<endl;
-            
+            interface.mostradados(vetor_metodos, foguetes, casasdecimais);
             break;
         case 4:
             // opcao para mostrar a analise

@@ -3,10 +3,15 @@
 #include<cstdio>
 #include<vector>
 #include<algorithm>
-//#include<locale.h>
-#include<stdlib.h>
 #include "Metodos.h"
 #include "Interface.h"
+#ifdef __cplusplus__
+  #include <cstdlib>
+#else
+  #include <stdlib.h>
+#endif
+
+
 
 using namespace std;
 
@@ -36,46 +41,17 @@ void Interface::percorrerLinha() {
 }
 
 void Interface::header() {
-    fonteVerde();  
-    inicioCarro();
-   
+    if (system("CLS")) system("clear");
 }
 
 void Interface::descricao() {
-    fonteVerde();
-    inicioCarro();
-    int n;
-    for (n = 0; n < 10; n++){
-      cout<<"\n\n\n\n\n\n\n\n\n\n";
-    }
-    cout<<"\tPreencha os parametros abaixo.";
-    cout<<"\t\t\t\t    │"<<endl;
-    inicioCarro();
-    cout<<"│";
-    percorrerLinha();
-    cout<<"│"<<endl;
-    inicioCarro();
-    cout<<"│";
-    percorrerLinha();
-    cout<<"│"<<endl;
+    //cout<<"Preencha os parametros abaixo.\n";
 }
 
 void Interface::menuInicial(int *foguetes, float *E) {
-    fonteVerde();
-    inicioCarro();
-    cout<<"│";
-    //cout<<"\t"<<"Insira o nº de foguetes: ";
-    cout<<"\t\t\t\t\t\t\t\t\t\t    │";
-    cout<<"\r\t\tInsira o nº de foguetes:  ";
-    resetarFonte();
+    cout<<"\rInsira o nº de foguetes:  ";
     cin >> *foguetes;
-    
-    inicioCarro();
-    fonteVerde();
-    cout<<"│";
-    cout<<"\t\t\t\t\t\t\t\t\t\t    │";
-    cout<<"\r\t\tInforme a precisão desejada: ";
-    resetarFonte();
+    cout<<"\rInforme a precisão desejada: ";
     cin >> *E;
     
 }
@@ -85,7 +61,7 @@ void Interface::loopParametros(int *foguetes, int *iteracoes, float *E, float *c
     for (int i = 0; i< *foguetes; i++)
     {
         float a;
-        cout << "\tInforme o parametro de ajuste para o foguete "<<i+1<<":  ";
+        cout << "\rInforme o parametro de ajuste para o foguete "<<i+1<<":  ";
         //resetarFonte();
         cin >> a;
         //fonteVerde();
@@ -106,38 +82,24 @@ void Interface::allParametros(int *foguetes, int *iteracoes, float *E, float *ca
     // para cada foguete, instaciamos uma classe com os métodos e armazenamos no vetor
     float isolamentoA;
     float isolamentoB;
-    fonteVerde();
-    cout << "\tIsolamento(a):  ";
-    resetarFonte();
+    cout << "\rIsolamento(a):  ";
     cin >> isolamentoA;
-    fonteVerde();
-    cout << "\tIsolamento (b):  ";
-    resetarFonte();
+    cout << "\rIsolamento (b):  ";
     cin >> isolamentoB;
-    fonteVerde();
-    cout << "\tErro permitido: ";
-    resetarFonte();
+    cout << "\rErro permitido: ";
     cin >> *E;
-    fonteVerde();
-    cout << "\tCasas decimais:  ";
-    resetarFonte();
+    cout << "\rCasas decimais:  ";
     cin >> *casasdecimais;
-    fonteVerde();
-    cout << "\tLimite Iteracoes: ";
-    resetarFonte();
+    cout << "\rLimite Iteracoes: ";
     cin >> *iteracoes;
-    fonteVerde();
-    cout << "\tArred. ou trunc (0 = arred, 1 trunc)"<<":  ";
-    resetarFonte();
+    cout << "\rArred. ou trunc (0 = arred, 1 trunc)"<<":  ";
     cin >> *AoT;
     for (int i = 0; i< *foguetes; i++)
     {   
         
         float a;
-        cout << "\tInforme o parametro de ajuste para o foguete "<<i+1<<":  ";
-        resetarFonte();
+        cout << "\rInforme o parametro de ajuste para o foguete "<<i+1<<":  ";
         cin >> a;
-        fonteVerde();
         Metodos metodos = Metodos(*iteracoes);
         // setando os parametros comuns a todos os métodos
         metodos.setA(isolamentoA); 
@@ -162,7 +124,6 @@ void Interface::mostradados(vector<Metodos> vetor_metodos, int foguetes, int cas
                 cout<<"Raiz Encontrada"<<setw(15);
                 cout<<"Método Usado"<<endl;
             }
-            resetarFonte();
             cout<<i+1<<setw(espaco);
             cout<<setprecision(casasdecimais)<<fixed;
             // pega a menor erro e identifica o metodo usado
